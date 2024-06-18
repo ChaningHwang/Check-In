@@ -16,7 +16,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build -t integrationninjas/go-app -f BE/Dockerfile
+        run: docker build -f BE/Dockerfile -t integrationninjas/go-app .
       - name: Push image to docker hub
         run: docker push integrationninjas/go-app:latest
   deploy:
